@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: last-location.process
+  namespace: platform
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: last-location.process
+  template:
+    metadata:
+      labels:
+        app: last-location.process
+    spec:
+      containers:
+      - name: last-location.process
+        image: acrsatrack.azurecr.io/last-location.process:9513
+        env:
+        - name: ASPNETCORE_ENVIRONMENT
+          value: Production    
+        resources:
+          requests:
+            cpu: 128m
+            memory: 256Mi
+          limits:
+            cpu: 250m
+            memory: 512Mi
+        ports:
+        - containerPort: 80
+      imagePullSecrets:
+      - name: registrosatrack 

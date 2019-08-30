@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: last-location-process
-        image: acrsatrack.azurecr.io/last-location-process:9516
+        image: acrsatrack.azurecr.io/last-location-process:9517
         env:
         - name: ASPNETCORE_ENVIRONMENT
           value: Production    

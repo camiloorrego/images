@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: last-location.process
+  name: last-location-process
   namespace: platform
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: last-location.process
+      app: last-location-process
   template:
     metadata:
       labels:
-        app: last-location.process
+        app: last-location-process
     spec:
       containers:
-      - name: last-location.process
-        image: acrsatrack.azurecr.io/last-location.process:9513
+      - name: last-location-process
+        image: acrsatrack.azurecr.io/last-location-process:9513
         env:
         - name: ASPNETCORE_ENVIRONMENT
           value: Production    

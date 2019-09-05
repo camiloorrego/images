@@ -1,32 +1,45 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: last-location-process
-  namespace: platform
+  name: location-pusher-v2
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
-      app: last-location-process
+      app: location-pusher-v2
   template:
     metadata:
       labels:
-        app: last-location-process
+        app: location-pusher-v2
     spec:
       containers:
-      - name: last-location-process
-        image: acrsatrack.azurecr.io/last-location-process:9520
+      - name: location-pusher-v2
+        image: testregistrocontenedores.azurecr.io/location-pusher-v2:9566
         env:
         - name: ASPNETCORE_ENVIRONMENT
-          value: Production    
+          value: Development
         resources:
           requests:
-            cpu: 128m
-            memory: 256Mi
+            cpu: 50m
+            memory: 400Mi
           limits:
-            cpu: 250m
-            memory: 512Mi
+            cpu: 100m
+            memory: 500Mi
         ports:
         - containerPort: 80
       imagePullSecrets:
-      - name: registrosatrack 
+      - name: registrosatrack
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: location-pusher-v2
+  labels:
+    app: location-pusher-v2
+spec:
+  type: LoadBalancer # Exposed over the internet through Azure Load Balancer
+  sessionAffinity: ClientIP
+  ports:
+  - port: 80
+  selector:
+    app: location-pusher-v2

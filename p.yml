@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: new-web-portal-ui-stagin
+  namespace: #{Namespace}#
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: new-web-portal-ui-stagin
+  template:
+    metadata:
+      labels:
+        app: new-web-portal-ui-stagin
+    spec:
+      containers:
+      - name: new-web-portal-ui-stagin
+        image: testregistrocontenedores.azurecr.io/new-web-portal-ui:12017        
+        resources:
+          requests:
+            cpu: 30m
+            memory: 50Mi
+          limits:
+            cpu: 60m
+            memory: 100Mi
+        ports:
+        - containerPort: 80
+      imagePullSecrets:
+      - name: registrosatrack
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: new-web-portal-ui-stagin
+  namespace: #{Namespace}#
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+  selector:
+    app: new-web-portal-ui-stagin

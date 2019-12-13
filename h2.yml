@@ -25,7 +25,7 @@ spec:
         - name: UrlAllowedClients
           value: https://w2stohome.table.core.windows.net/  
         - name: TokenSTO
-          value: sv=2018-03-28\u0026ss=t\u0026srt=o\u0026sp=rl\u0026se=2030-03-27T03:23:39Z\u0026st=2019-03-26T19:23:39Z\u0026spr=https,http\u0026sig=YHsHgho3GIe0ZECoZRsJYqmDw64rndsHGu8syfwkMcs%3D
+          value: sv=2019-02-02&ss=bfqt&srt=sco&sp=rwdlacup&se=2030-12-13T11:45:44Z&st=2019-12-13T03:45:44Z&spr=https,http&sig=ycxiz2dM4Y3MNdMjy%2FhXpDLskDFn%2BcScLE5ppFwOKg4%3D
         - name: UrlNw
           value: http://40.123.38.174/#
         - name: UrlLegacy

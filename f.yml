@@ -27,7 +27,7 @@ spec:
         - name: TokenSTO
           value: sv=2018-03-28\u0026ss=t\u0026srt=o\u0026sp=rl\u0026se=2030-03-27T03:23:39Z\u0026st=2019-03-26T19:23:39Z\u0026spr=https,http\u0026sig=YHsHgho3GIe0ZECoZRsJYqmDw64rndsHGu8syfwkMcs%3D
         - name: UrlNw
-          value: http://platform.satrack.com/#
+          value: http://52.232.242.230/#
         - name: UrlLegacy
           value: http://webcloud2.satrack.com/
         - name: UrlContent
